@@ -108,15 +108,13 @@
       transform: translateX(-50%);
       width: min(95%, 900px);
       text-align: center;
-      color: rgba(232,225,217,0.45);
+      color: rgba(232,225,217,0.42);
       font-weight: 400;
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       line-height: 1.4;
       pointer-events: none;
       text-wrap: balance;
       filter: drop-shadow(0 1px 0 rgba(0,0,0,0.25));
-      opacity: 0;
-      animation: fadeInSoft 1.8s ease-in forwards;
     }
 
     .quote p {
@@ -124,6 +122,12 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      opacity: 0;
+      animation: fadeInSoft 1.8s ease-in forwards;
+    }
+
+    .quote p:nth-child(2) {
+      animation-delay: 1.5s;
     }
 
     footer{
@@ -131,8 +135,8 @@
       bottom: 0; left: 0; width: 100%;
       text-align: center;
       padding: 10px 14px;
-      font-size: 0.74rem;
-      color: rgba(184,175,164,0.45);
+      font-size: 0.7rem;
+      color: rgba(184,175,164,0.4);
       background: linear-gradient(180deg, transparent, var(--veil));
       border-top: 1px solid var(--hairline);
       letter-spacing: 0.35px;
