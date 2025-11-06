@@ -96,7 +96,6 @@
       border-color: rgba(197,160,122,0.6);
     }
 
-    /* fade-in animation */
     @keyframes fadeInSoft {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -112,14 +111,17 @@
       color: rgba(232,225,217,0.45);
       font-weight: 400;
       font-size: 0.8rem;
-      line-height: 1.5;
+      line-height: 1.4;
       pointer-events: none;
       text-wrap: balance;
       filter: drop-shadow(0 1px 0 rgba(0,0,0,0.25));
       opacity: 0;
       animation: fadeInSoft 1.8s ease-in forwards;
     }
-    .quote p + p{ margin-top: 6px; }
+
+    .quote p + p {
+      margin-top: 8px;
+    }
 
     footer{
       position: fixed;
@@ -151,8 +153,7 @@
   </div>
 
   <div class="quote">
-    <p>“Where is the life we have lost in living? Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in information?”</p>
-    <p>“The decline of personal thoughts won't look like ignorance. It would look like hyper-efficiency — like always knowing the answer, but forgetting why you care to ask.”</p>
+    <p>“Where is the life we have lost in living? Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in information?” — “The decline of personal thoughts won't look like ignorance. It would look like hyper-efficiency — like always knowing the answer, but forgetting why you care to ask.”</p>
   </div>
 
   <footer>
