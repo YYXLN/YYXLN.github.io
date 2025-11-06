@@ -33,58 +33,36 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 56px 22px 96px;
+      padding: 100px 22px 96px; /* top padding reduced since header is fixed */
       letter-spacing: 0.1px;
     }
 
-    header{
-      text-align:center;
-      margin-bottom: 28px;
+    /* === Header (name in top-left corner) === */
+    header {
+      position: fixed;
+      top: 22px;
+      left: 26px;
+      text-align: left;
+      z-index: 10;
     }
 
     header h1 {
       font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: clamp(2.4rem, 4vw, 3.4rem);
-      color: #e8e1d9;
-      position: relative;
-      letter-spacing: 0.6px;
-      text-shadow:
-        0 0 6px rgba(197,160,122,0.25),
-        0 0 12px rgba(197,160,122,0.15),
-        0 0 18px rgba(197,160,122,0.1);
-      animation: shimmerGlow 5s ease-in-out infinite alternate;
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: rgba(232,225,217,0.65);
+      letter-spacing: 0.5px;
+      text-shadow: none;
+      transition: color 0.3s ease, opacity 0.3s ease;
     }
 
-    @keyframes shimmerGlow {
-      0% {
-        text-shadow:
-          0 0 4px rgba(197,160,122,0.1),
-          0 0 10px rgba(197,160,122,0.05),
-          0 0 16px rgba(197,160,122,0.0);
-        opacity: 0.95;
-      }
-      50% {
-        text-shadow:
-          0 0 8px rgba(197,160,122,0.3),
-          0 0 20px rgba(197,160,122,0.25),
-          0 0 30px rgba(197,160,122,0.15);
-        opacity: 1;
-      }
-      100% {
-        text-shadow:
-          0 0 4px rgba(197,160,122,0.1),
-          0 0 10px rgba(197,160,122,0.05),
-          0 0 16px rgba(197,160,122,0.0);
-        opacity: 0.95;
-      }
+    header h1:hover {
+      color: rgba(232,225,217,0.9);
+      opacity: 1;
     }
 
     header p{
-      margin-top: 8px;
-      font-weight: 400;
-      font-size: 1.05rem;
-      color: var(--muted);
+      display: none; /* hide tagline, minimal aesthetic */
     }
 
     .container{
@@ -210,7 +188,6 @@
 <body>
   <header>
     <h1>Ashley Ye</h1>
-    <p>Thinking Space</p>
   </header>
 
   <div class="container">
@@ -254,3 +231,4 @@
   </footer>  
 </body>
 </html>
+
