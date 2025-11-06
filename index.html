@@ -1,193 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ashley Ye's Website</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Serif for name, Sans for tagline -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
-      --bg: #0f0f11;
-      --panel: #141417;
-      --ink: #e8e1d9;
-      --muted: #b8afa4;
-      --accent: #c5a07a;
-      --accent-strong: #b18459;
-      --hairline: rgba(197,160,122,0.22);
-      --veil: rgba(20,20,23,0.55);
+      --bg:#0f0f11; --panel:#141417; --ink:#e8e1d9; --muted:#b8afa4;
+      --accent:#c5a07a; --accent-strong:#b18459; --hairline:rgba(197,160,122,.22); --veil:rgba(20,20,23,.55);
     }
-
     *{margin:0;padding:0;box-sizing:border-box}
 
-    html, body {
-      font-family: "Playfair Display", serif;
+    html,body{
+      font-family:"Playfair Display",serif;
       background:
-        radial-gradient(1200px 600px at 50% -10%, rgba(197,160,122,0.10), transparent 60%),
-        radial-gradient(800px 500px at 80% 110%, rgba(197,160,122,0.08), transparent 60%),
+        radial-gradient(1200px 600px at 50% -10%, rgba(197,160,122,.10), transparent 60%),
+        radial-gradient(800px 500px at 80% 110%, rgba(197,160,122,.08), transparent 60%),
         var(--bg);
-      color: var(--ink);
-      line-height: 1.65;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 100px 22px 96px; /* top padding reduced since header is fixed */
-      letter-spacing: 0.1px;
+      color:var(--ink);
+      line-height:1.65;
+      min-height:100vh;
+      display:flex; flex-direction:column; align-items:center;
+      padding:100px 22px 96px;
+      letter-spacing:.1px;
     }
 
-    /* === Header (name in top-left corner) === */
-    header {
-      position: fixed;
-      top: 22px;
-      left: 26px;
-      text-align: left;
-      z-index: 10;
+    /* === Top-left brand === */
+    header{
+      position:fixed; top:22px; left:26px; z-index:10;
+      display:flex; align-items:flex-end; gap:.6rem;
     }
-
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
-      font-size: 1.2rem;
-      color: rgba(232,225,217,0.65);
-      letter-spacing: 0.5px;
-      text-shadow: none;
-      transition: color 0.3s ease, opacity 0.3s ease;
+    .brand{
+      font-family:"Playfair Display",serif;
+      font-weight:600;
+      font-size:1.6rem; /* bigger */
+      letter-spacing:.6px;
+      color:rgba(232,225,217,.88); /* brighter */
+      position:relative;
+      /* stronger shimmer */
+      text-shadow:
+        0 0 6px rgba(197,160,122,.35),
+        0 0 14px rgba(197,160,122,.25),
+        0 0 28px rgba(197,160,122,.18);
+      animation:shimmerPulse 4s ease-in-out infinite alternate;
     }
-
-    header h1:hover {
-      color: rgba(232,225,217,0.9);
-      opacity: 1;
+    @keyframes shimmerPulse{
+      0%{
+        text-shadow:
+          0 0 4px rgba(197,160,122,.18),
+          0 0 10px rgba(197,160,122,.12),
+          0 0 18px rgba(197,160,122,.08);
+        opacity:.95;
+      }
+      50%{
+        text-shadow:
+          0 0 10px rgba(197,160,122,.55),
+          0 0 24px rgba(197,160,122,.42),
+          0 0 46px rgba(197,160,122,.30);
+        opacity:1;
+      }
+      100%{
+        text-shadow:
+          0 0 6px rgba(197,160,122,.22),
+          0 0 14px rgba(197,160,122,.16),
+          0 0 28px rgba(197,160,122,.10);
+        opacity:.96;
+      }
     }
-
-    header p{
-      display: none; /* hide tagline, minimal aesthetic */
+    .tagline{
+      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-weight:600;
+      font-size:.95rem;
+      letter-spacing:.3px;
+      color:rgba(232,225,217,.60);
+      padding:.15rem .5rem;
+      border:1px solid rgba(197,160,122,.25);
+      border-radius:999px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), transparent);
+      backdrop-filter:blur(1.5px);
+      transition:color .25s ease,border-color .25s ease,background .25s ease;
+    }
+    header:hover .tagline{
+      color:rgba(232,225,217,.85);
+      border-color:rgba(197,160,122,.45);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), transparent);
     }
 
     .container{
-      width: 100%;
-      max-width: 860px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%),
-        var(--panel);
-      border: 1px solid var(--hairline);
-      border-radius: 14px;
-      padding: 26px 24px;
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.03);
-      text-align: center;
+      width:100%; max-width:860px;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 30%), var(--panel);
+      border:1px solid var(--hairline);
+      border-radius:14px;
+      padding:26px 24px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.03);
+      text-align:center;
     }
-
     .container h2{
-      font-weight: 500;
-      color: var(--muted);
-      font-size: 1.55rem;
-      margin-bottom: 16px;
-      letter-spacing: 0.4px;
+      font-weight:500; color:var(--muted); font-size:1.55rem; margin-bottom:16px; letter-spacing:.4px;
     }
 
-    ul{list-style:none}
-    ul li{margin: 14px 0}
-
+    ul{list-style:none} ul li{margin:14px 0}
     a{
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--accent);
-      border-bottom: 1px dashed rgba(197,160,122,0.35);
-      padding-bottom: 2px;
-      transition: color .2s ease, border-color .2s ease, transform .1s ease;
+      text-decoration:none; font-weight:500; color:var(--accent);
+      border-bottom:1px dashed rgba(197,160,122,.35); padding-bottom:2px;
+      transition:color .2s ease,border-color .2s ease,transform .1s ease;
     }
-    a:hover{
-      color: var(--accent-strong);
-      border-color: rgba(197,160,122,0.6);
-    }
+    a:hover{ color:var(--accent-strong); border-color:rgba(197,160,122,.6); }
 
-    @keyframes fadeInSoft {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
+    @keyframes fadeInSoft{from{opacity:0}to{opacity:1}}
     .quote{
-      position: fixed;
-      left: 50%;
-      bottom: 64px;
-      transform: translateX(-50%);
-      width: min(95%, 900px);
-      text-align: center;
-      color: rgba(232,225,217,0.42);
-      font-weight: 400;
-      font-size: 0.72rem;
-      line-height: 1.4;
-      pointer-events: none;
-      text-wrap: balance;
-      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.25));
+      position:fixed; left:50%; bottom:64px; transform:translateX(-50%);
+      width:min(95%, 900px); text-align:center;
+      color:rgba(232,225,217,.42); font-weight:400; font-size:.72rem; line-height:1.4;
+      pointer-events:none; text-wrap:balance; filter:drop-shadow(0 1px 0 rgba(0,0,0,.25));
     }
-
-    .quote p {
-      margin: 4px 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      opacity: 0;
-      animation: fadeInSoft 1.8s ease-in forwards;
-    }
-
-    .quote p:nth-child(2) {
-      animation-delay: 1.5s;
-    }
+    .quote p{ margin:4px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0; animation:fadeInSoft 1.8s ease-in forwards; }
+    .quote p:nth-child(2){ animation-delay:1.5s; }
 
     footer{
-      position: fixed;
-      bottom: 0; left: 0; width: 100%;
-      text-align: center;
-      padding: 10px 14px;
-      font-size: 0.7rem;
-      color: rgba(184,175,164,0.4);
-      background: linear-gradient(180deg, transparent, var(--veil));
-      border-top: 1px solid var(--hairline);
-      letter-spacing: 0.35px;
-      backdrop-filter: blur(2px);
+      position:fixed; bottom:0; left:0; width:100%; text-align:center;
+      padding:10px 14px; font-size:.7rem; color:rgba(184,175,164,.4);
+      background:linear-gradient(180deg, transparent, var(--veil));
+      border-top:1px solid var(--hairline); letter-spacing:.35px; backdrop-filter:blur(2px);
     }
-
-    /* --- Footer icon styles --- */
-    footer .social-icons {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-left: 0.6rem;
+    /* Footer icons */
+    footer .social-icons{ display:inline-flex; align-items:center; gap:.6rem; margin-left:.6rem; }
+    footer .social-icons a{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:22px; height:22px; color:rgba(197,160,122,.7);
+      text-decoration:none; border:none; padding:0; transition:color .25s ease, transform .2s ease;
     }
-
-    footer .social-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      color: rgba(197,160,122,0.7);
-      text-decoration: none;
-      border: none;
-      padding: 0;
-      transition: color 0.25s ease, transform 0.2s ease;
-    }
-
-    footer .social-icons a:hover {
-      color: var(--accent-strong);
-      transform: scale(1.1);
-    }
-
-    footer .social-icons .icon {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-    }
+    footer .social-icons a:hover{ color:var(--accent-strong); transform:scale(1.1); }
+    footer .social-icons .icon{ width:100%; height:100%; fill:currentColor; }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>Ashley Ye</h1>
+    <div class="brand">Ashley Ye</div>
+    <div class="tagline">A Thinking Space</div>
   </header>
 
   <div class="container">
@@ -228,7 +182,6 @@
         </a>
       </span>
     </p>
-  </footer>  
+  </footer>
 </body>
 </html>
-
