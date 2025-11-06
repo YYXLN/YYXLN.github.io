@@ -7,6 +7,7 @@
 - [A survery of tokenizer](day3.md)
 - [Thoughts about FNO, KNN, FM, etc](day4.md)
 - [Company agent experience diary](day5.md)
+- [Taste of management and people(If I can express it clearly one day...)](day6.md)
 
 ---
 
