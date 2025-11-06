@@ -5,26 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ashley Ye's Website</title>
 
-  <!-- Classic serif for everything -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* warm, classic, edgy-cozy palette */
-      --bg: #0f0f11;                /* deep charcoal */
-      --panel: #141417;             /* slightly lighter panel */
-      --ink: #e8e1d9;               /* parchment ink */
-      --muted: #b8afa4;             /* muted text */
-      --accent: #c5a07a;            /* bronze accent */
-      --accent-strong: #b18459;     /* deeper bronze */
+      --bg: #0f0f11;
+      --panel: #141417;
+      --ink: #e8e1d9;
+      --muted: #b8afa4;
+      --accent: #c5a07a;
+      --accent-strong: #b18459;
       --hairline: rgba(197,160,122,0.22);
       --veil: rgba(20,20,23,0.55);
     }
 
-    /* Reset */
     *{margin:0;padding:0;box-sizing:border-box}
 
-    /* Global typography: one font everywhere */
     html, body {
       font-family: "Playfair Display", serif;
       background:
@@ -37,7 +33,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 56px 22px 96px; /* bottom space for footer/quote */
+      padding: 56px 22px 96px;
       letter-spacing: 0.1px;
     }
 
@@ -99,27 +95,32 @@
       color: var(--accent-strong);
       border-color: rgba(197,160,122,0.6);
     }
-    a:active{ transform: translateY(1px); }
 
-    /* Fixed quote just above footer */
+    /* fade-in animation */
+    @keyframes fadeInSoft {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .quote{
       position: fixed;
       left: 50%;
-      bottom: 64px; /* sits above footer */
+      bottom: 64px;
       transform: translateX(-50%);
-      width: min(90%, 760px);
+      width: min(95%, 900px);
       text-align: center;
-      color: rgba(232,225,217,0.62);
+      color: rgba(232,225,217,0.45);
       font-weight: 400;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       line-height: 1.5;
-      pointer-events: none; /* don’t block clicks */
+      pointer-events: none;
       text-wrap: balance;
-      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.35));
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.25));
+      opacity: 0;
+      animation: fadeInSoft 1.8s ease-in forwards;
     }
-    .quote p + p{ margin-top: 8px; }
+    .quote p + p{ margin-top: 6px; }
 
-    /* Flatter, wider, smaller, more transparent footer pinned to bottom */
     footer{
       position: fixed;
       bottom: 0; left: 0; width: 100%;
@@ -131,12 +132,6 @@
       border-top: 1px solid var(--hairline);
       letter-spacing: 0.35px;
       backdrop-filter: blur(2px);
-    }
-
-    /* Small polish for focus states (keyboard a11y) */
-    a:focus{
-      outline: 2px dashed rgba(197,160,122,0.6);
-      outline-offset: 3px;
     }
   </style>
 </head>
