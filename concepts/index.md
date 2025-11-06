@@ -2,8 +2,9 @@
 
 ## Daily Topics
 
-- [Day 1 – Introduction to LLM Infrastructure](day1.md)
-- Day 2 – *Coming Soon*
+- [Introduction to LLM Infrastructure](day1.md)
+- [Thoughts about reward hacking, on-policy distillation and IRL](day2.md)
+- [A survery of tokenizer](day3.md)
 
 ---
 
