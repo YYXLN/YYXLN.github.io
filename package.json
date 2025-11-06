@@ -1,0 +1,32 @@
+{
+  "name": "yyxln.github.io",
+  "version": "1.0.0",
+  "description": "Personal site build pipeline for Ashley Ye (Markdown → Styled HTML)",
+  "main": "renderer/build.js",
+  "type": "module",
+  "scripts": {
+    "build": "node renderer/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YYXLN/YYXLN.github.io.git"
+  },
+  "keywords": [
+    "markdown",
+    "html",
+    "github-pages",
+    "site",
+    "ashley-ye"
+  ],
+  "author": "Ashley Ye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YYXLN/YYXLN.github.io/issues"
+  },
+  "homepage": "https://yyxln.github.io/",
+  "dependencies": {
+    "marked": "^16.4.1"
+  }
+}
+

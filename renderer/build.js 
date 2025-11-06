@@ -1,0 +1,19 @@
+import fs from "fs";
+import { marked } from "marked";
+import { convertMarkdownToStyledHTML } from "./renderer.js";
+
+global.marked = marked; // make available to the converter
+
+const md = fs.readFileSync("./renderer/example.md", "utf8");
+
+const html = convertMarkdownToStyledHTML(md, {
+  title: "Ashley Ye",
+  quotes: [
+    "“Where is the life we have lost in living? Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in information?”",
+    "“Perhaps you seek too much — as a result you seek so little.”"
+  ],
+  shimmerTitle: true
+});
+
+fs.writeFileSync("./index.html", html);
+console.log("✅ Built index.html");
