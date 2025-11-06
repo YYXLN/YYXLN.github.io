@@ -1,146 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashley Ye's Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashley Ye's Website</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e293b, #334155);
-            color: #e2e8f0;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            padding: 40px 20px 80px; /* leave space for footer */
-        }
+  <!-- Classic serif for everything -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+  <style>
+    :root{
+      /* warm, classic, edgy-cozy palette */
+      --bg: #0f0f11;                /* deep charcoal */
+      --panel: #141417;             /* slightly lighter panel */
+      --ink: #e8e1d9;               /* parchment ink */
+      --muted: #b8afa4;             /* muted text */
+      --accent: #c5a07a;            /* bronze accent */
+      --accent-strong: #b18459;     /* deeper bronze */
+      --hairline: rgba(197,160,122,0.22);
+      --veil: rgba(20,20,23,0.55);
+    }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            color: #f8fafc;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
-        }
+    /* Reset */
+    *{margin:0;padding:0;box-sizing:border-box}
 
-        header p {
-            font-size: 1.1rem;
-            color: #94a3b8;
-        }
+    /* Global typography: one font everywhere */
+    html, body {
+      font-family: "Playfair Display", serif;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(197,160,122,0.10), transparent 60%),
+        radial-gradient(800px 500px at 80% 110%, rgba(197,160,122,0.08), transparent 60%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 56px 22px 96px; /* bottom space for footer/quote */
+      letter-spacing: 0.1px;
+    }
 
-        .container {
-            background: #0f172a;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-        }
+    header{
+      text-align:center;
+      margin-bottom: 28px;
+    }
 
-        .container h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #94a3b8;
-            font-weight: 500;
-        }
+    header h1{
+      font-weight: 600;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      color: var(--ink);
+      letter-spacing: 0.6px;
+      text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+    }
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+    header p{
+      margin-top: 8px;
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
 
-        ul li {
-            margin: 1rem 0;
-        }
+    .container{
+      width: 100%;
+      max-width: 860px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%),
+        var(--panel);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      padding: 26px 24px;
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+      text-align: center;
+    }
 
-        a {
-            text-decoration: none;
-            color: #38bdf8;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+    .container h2{
+      font-weight: 500;
+      color: var(--muted);
+      font-size: 1.55rem;
+      margin-bottom: 16px;
+      letter-spacing: 0.4px;
+    }
 
-        a:hover {
-            color: #0ea5e9;
-        }
+    ul{list-style:none}
+    ul li{margin: 14px 0}
 
-        .quote {
-            position: fixed;
-            bottom: 70px; /* sit above footer */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-weight: 300;
-            font-size: 0.9rem;
-            color: rgba(226, 232, 240, 0.55);
-            line-height: 1.5;
-            pointer-events: none;
-        }
+    a{
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--accent);
+      border-bottom: 1px dashed rgba(197,160,122,0.35);
+      padding-bottom: 2px;
+      transition: color .2s ease, border-color .2s ease, transform .1s ease;
+    }
+    a:hover{
+      color: var(--accent-strong);
+      border-color: rgba(197,160,122,0.6);
+    }
+    a:active{ transform: translateY(1px); }
 
-        .quote p + p {
-            margin-top: 0.6rem;
-        }
+    /* Fixed quote just above footer */
+    .quote{
+      position: fixed;
+      left: 50%;
+      bottom: 64px; /* sits above footer */
+      transform: translateX(-50%);
+      width: min(90%, 760px);
+      text-align: center;
+      color: rgba(232,225,217,0.62);
+      font-weight: 400;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      pointer-events: none; /* don’t block clicks */
+      text-wrap: balance;
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.35));
+    }
+    .quote p + p{ margin-top: 8px; }
 
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            padding: 12px 0;
-            font-size: 0.75rem;
-            color: rgba(148, 163, 184, 0.4);
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(4px);
-            border-top: 1px solid rgba(100, 116, 139, 0.15);
-            letter-spacing: 0.3px;
-        }
-    </style>
+    /* Flatter, wider, smaller, more transparent footer pinned to bottom */
+    footer{
+      position: fixed;
+      bottom: 0; left: 0; width: 100%;
+      text-align: center;
+      padding: 10px 14px;
+      font-size: 0.74rem;
+      color: rgba(184,175,164,0.45);
+      background: linear-gradient(180deg, transparent, var(--veil));
+      border-top: 1px solid var(--hairline);
+      letter-spacing: 0.35px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* Small polish for focus states (keyboard a11y) */
+    a:focus{
+      outline: 2px dashed rgba(197,160,122,0.6);
+      outline-offset: 3px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Ashley Ye</h1>
-        <p>Welcome to my personal website</p>
-    </header>
+  <header>
+    <h1>Ashley Ye</h1>
+    <p>Welcome to my personal website</p>
+  </header>
 
-    <div class="container">
-        <h2>Explore</h2>
-        <ul>
-            <li><a href="cv.pdf" target="_blank">My CV</a></li>
-            <li><a href="concepts/index.html" target="_blank">LLM Infrastructure Concepts</a></li>
-            <li><a href="concepts/linear.html" target="_blank">Linear: Personal Project Updates</a></li>
-        </ul>
-    </div>
+  <div class="container">
+    <h2>Explore</h2>
+    <ul>
+      <li><a href="cv.pdf" target="_blank">My CV</a></li>
+      <li><a href="concepts/index.html" target="_blank">LLM Infrastructure Concepts</a></li>
+      <li><a href="concepts/linear.html" target="_blank">Linear: Personal Project Updates</a></li>
+    </ul>
+  </div>
 
-    <div class="quote">
-        <p>“Where is the life we have lost in living? Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in information?”</p>
-        <p>“The decline of personal thoughts won't look like ignorance. It would look like hyper-efficiency — like always knowing the answer, but forgetting why you care to ask.”</p>
-    </div>
+  <div class="quote">
+    <p>“Where is the life we have lost in living? Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in information?”</p>
+    <p>“The decline of personal thoughts won't look like ignorance. It would look like hyper-efficiency — like always knowing the answer, but forgetting why you care to ask.”</p>
+  </div>
 
-    <footer>
-        <p>&copy; 2025 Ashley Ye. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Ashley Ye. All rights reserved.</p>
+  </footer>
 </body>
 </html>
