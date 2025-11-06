@@ -5,7 +5,7 @@
   "main": "renderer/build.js",
   "type": "module",
   "scripts": {
-    "build": "node renderer/build.js",
+    "build": "node ./renderer/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

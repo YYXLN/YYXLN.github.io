@@ -1,0 +1,168 @@
+/* Google font */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap");
+
+/* Warm, classic, edgy-cozy palette */
+:root{
+  --bg: #0f0f11;
+  --panel: #141417;
+  --ink: #e8e1d9;
+  --muted: #b8afa4;
+  --accent: #c5a07a;
+  --accent-strong: #b18459;
+  --hairline: rgba(197,160,122,0.22);
+  --veil: rgba(20,20,23,0.55);
+}
+
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* Global */
+html, body{
+  font-family: "Playfair Display", serif;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(197,160,122,0.10), transparent 60%),
+    radial-gradient(800px 500px at 80% 110%, rgba(197,160,122,0.08), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px 22px 96px; /* leave room for footer/quote */
+  letter-spacing: 0.1px;
+}
+
+/* Header + shimmering aura around title */
+header{ text-align:center; margin-bottom: 28px; }
+header h1{
+  font-weight: 600;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  letter-spacing: 0.6px;
+  color: #e8e1d9;
+  position: relative;
+  text-shadow:
+    0 0 6px rgba(197,160,122,0.25),
+    0 0 12px rgba(197,160,122,0.15),
+    0 0 18px rgba(197,160,122,0.10);
+}
+/* optional gentle shimmer */
+.shimmer{ animation: shimmerGlow 5s ease-in-out infinite alternate; }
+@keyframes shimmerGlow{
+  0%{
+    text-shadow:
+      0 0 4px rgba(197,160,122,0.10),
+      0 0 10px rgba(197,160,122,0.05),
+      0 0 16px rgba(197,160,122,0.00);
+    opacity: 0.95;
+  }
+  50%{
+    text-shadow:
+      0 0 8px rgba(197,160,122,0.30),
+      0 0 20px rgba(197,160,122,0.25),
+      0 0 30px rgba(197,160,122,0.15);
+    opacity: 1;
+  }
+  100%{
+    text-shadow:
+      0 0 4px rgba(197,160,122,0.10),
+      0 0 10px rgba(197,160,122,0.05),
+      0 0 16px rgba(197,160,122,0.00);
+    opacity: 0.95;
+  }
+}
+
+/* Content container (used by markdown pages) */
+.container{
+  width: 100%;
+  max-width: 860px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%),
+    var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  padding: 26px 24px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* Typography inside .container */
+.container h2, .container h3, .container h4 {
+  color: var(--muted);
+  letter-spacing: 0.4px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+.container h2{ font-size: 1.55rem; }
+.container h3{ font-size: 1.3rem; }
+.container h4{ font-size: 1.1rem; }
+
+.container p { margin: 0.6rem 0; }
+.container ul, .container ol { margin: 0.6rem 1.2rem; }
+.container li { margin: 0.3rem 0; }
+
+.container a{
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(197,160,122,0.35);
+  padding-bottom: 1px;
+  transition: color .2s ease, border-color .2s ease;
+}
+.container a:hover{
+  color: var(--accent-strong);
+  border-color: rgba(197,160,122,0.6);
+}
+
+/* Code */
+.container code{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(197,160,122,0.18);
+  padding: 0.06rem 0.3rem;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.92em;
+  color: var(--ink);
+}
+pre code{ display:block; padding:0.8rem 1rem; overflow-x:auto; }
+
+/* Quotes (optional, fixed near bottom) */
+@keyframes fadeInSoft{ from{opacity:0} to{opacity:1} }
+.quote{
+  position: fixed;
+  left: 50%;
+  bottom: 64px;
+  transform: translateX(-50%);
+  width: min(96%, 1100px);
+  text-align: center;
+  color: rgba(232,225,217,0.40);
+  font-weight: 400;
+  font-size: 0.70rem;
+  line-height: 1.35;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.25));
+}
+.quote p{
+  margin: 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  animation: fadeInSoft 1.8s ease-in forwards;
+}
+.quote p.q2{ animation-delay: 1.5s; }
+
+/* Footer (fixed) */
+footer{
+  position: fixed;
+  bottom: 0; left: 0; width: 100%;
+  text-align: center;
+  padding: 10px 14px;
+  font-size: 0.70rem;
+  color: rgba(184,175,164,0.40);
+  background: linear-gradient(180deg, transparent, var(--veil));
+  border-top: 1px solid var(--hairline);
+  letter-spacing: 0.35px;
+  backdrop-filter: blur(2px);
+}
