@@ -1,50 +1,31 @@
 // renderer/renderer.js
 
-/**
- * Convert Markdown to a full HTML page using the shared /style.css theme.
- *
- * Usage (Node):
- *   import { marked } from "marked";
- *   import { convertMarkdownToStyledHTML } from "./renderer/renderer.js";
- *   global.marked = marked; // expose to function
- *   const html = convertMarkdownToStyledHTML("# Hello", {
- *     title: "Ashley Ye",
- *     quotes: [
- *       "“Where is the life we have lost in living? Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in information?”",
- *       "“Perhaps you seek too much — as a result you seek so little.”"
- *     ],
- *     shimmerTitle: true
- *   });
- *
- * Options:
- *   - title: string (default "Ashley Ye")
- *   - quotes: string[] up to 2 lines; second line fades via .q2 (CSS handles delay)
- *   - shimmerTitle: boolean (default true) adds .shimmer class to H1
- *   - cssHref: string (default "/style.css?v=1") path to shared stylesheet
- */
-
 export function convertMarkdownToStyledHTML(markdown, opts = {}) {
+    // Build an absolute URL to /style.css relative to this file (works anywhere)
+    const resolvedCssHref =
+      opts.cssHref ??
+      new URL("../style.css?v=4", import.meta.url).href;
+  
     const {
       title = "Ashley Ye",
       quotes = [],
       shimmerTitle = true,
-      cssHref = "../style.css?v=1"
     } = opts;
+  
+    const cssLink = `<link rel="stylesheet" href="${escapeAttr(resolvedCssHref)}">`;
+    const quotesHTML = renderQuotes(quotes);
+    const shimmerClass = shimmerTitle ? "shimmer" : "";
   
     // Prefer marked if present; fall back to minimal paragraph conversion
     const mdToHtml = (text) => {
       if (typeof marked !== "undefined" && marked?.parse) {
         return marked.parse(text);
       }
-      // Minimal fallback: paragraph-ize by blank lines; keep single line breaks
-      return text
+      return String(text ?? "")
         .split(/\n{2,}/)
         .map(p => `<p>${escapeHtml(p).replace(/\n/g, "<br/>")}</p>`)
         .join("\n");
     };
-  
-    const quotesHTML = renderQuotes(quotes);
-    const shimmerClass = shimmerTitle ? "shimmer" : "";
   
     return `<!DOCTYPE html>
   <html lang="en">
@@ -52,7 +33,7 @@ export function convertMarkdownToStyledHTML(markdown, opts = {}) {
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>${escapeHtml(title)}</title>
-    <link rel="stylesheet" href="${escapeAttr(cssHref)}">
+    ${cssLink}
   </head>
   <body>
     <header>
@@ -60,7 +41,7 @@ export function convertMarkdownToStyledHTML(markdown, opts = {}) {
     </header>
   
     <main class="container">
-      ${mdToHtml(String(markdown ?? ""))}
+      ${mdToHtml(markdown)}
     </main>
   
     ${quotesHTML}
@@ -92,10 +73,6 @@ export function convertMarkdownToStyledHTML(markdown, opts = {}) {
   }
   
   function escapeAttr(s = "") {
-    // same as escapeHtml but also escape single quotes for attributes if needed
     return escapeHtml(s).replace(/'/g, "&#39;");
   }
-  
-  // Optional CommonJS compatibility (if ever needed):
-  // module.exports = { convertMarkdownToStyledHTML };
   
