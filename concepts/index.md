@@ -8,6 +8,7 @@
 - [Thoughts about FNO, KNN, FM, etc](day4.md)
 - [Company agent experience diary](day5.md)
 - [A survery of evaluation](day7.md)
+- [Systematic thinking](day8.md)
 
 
 ---
