@@ -13,4 +13,4 @@
 
 ---
 
-© 2025 Ashley Ye. All rights reserved.
+© 2025 Yuxin Ye. All rights reserved.

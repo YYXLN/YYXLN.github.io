@@ -1,12 +1,13 @@
 {
   "name": "yyxln.github.io",
   "version": "1.0.0",
-  "description": "Personal site build pipeline for Ashley Ye (Markdown → Styled HTML)",
+  "description": "Personal site build pipeline for Ashley Ye (Markdown \u2192 Styled HTML)",
   "main": "renderer/build.js",
   "type": "module",
   "scripts": {
     "build": "node ./renderer/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "node ./renderer/check.js",
+    "build:cv": "python3 ./renderer/build-cv.py"
   },
   "repository": {
     "type": "git",
@@ -29,4 +30,3 @@
     "marked": "^16.4.1"
   }
 }
-

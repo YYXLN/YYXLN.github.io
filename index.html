@@ -3,177 +3,25 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ashley Ye's Website</title>
+  <title>Yuxin Ye's Website</title>
 
   <!-- Serif for name, Sans for tagline -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet"/>
 
-  <style>
-    :root{
-      --bg:#0f0f11; --panel:#141417; --ink:#e8e1d9; --muted:#b8afa4;
-      --accent:#c5a07a; --accent-strong:#b18459; --hairline:rgba(197,160,122,.22); --veil:rgba(20,20,23,.55);
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-
-    html,body{
-      font-family:"Playfair Display",serif;
-      background:
-        radial-gradient(1200px 600px at 50% -10%, rgba(197,160,122,.10), transparent 60%),
-        radial-gradient(800px 500px at 80% 110%, rgba(197,160,122,.08), transparent 60%),
-        var(--bg);
-      color:var(--ink);
-      line-height:1.65;
-      min-height:100vh;
-      display:flex; flex-direction:column; align-items:center;
-      padding:100px 22px 96px;
-      letter-spacing:.1px;
-    }
-
-    /* === Top-left brand === */
-    header{
-      position:fixed; top:22px; left:26px; z-index:10;
-      display:flex; align-items:flex-end; gap:.6rem;
-    }
-    .brand{
-      font-family:"Playfair Display",serif;
-      font-weight:600;
-      font-size:1.6rem;
-      letter-spacing:.6px;
-      color:rgba(232,225,217,.88);
-      position:relative;
-      text-shadow:
-        0 0 6px rgba(197,160,122,.35),
-        0 0 14px rgba(197,160,122,.25),
-        0 0 28px rgba(197,160,122,.18);
-      animation:shimmerPulse 4s ease-in-out infinite alternate;
-    }
-    @keyframes shimmerPulse{
-      0%{
-        text-shadow:
-          0 0 4px rgba(197,160,122,.18),
-          0 0 10px rgba(197,160,122,.12),
-          0 0 18px rgba(197,160,122,.08);
-        opacity:.95;
-      }
-      50%{
-        text-shadow:
-          0 0 10px rgba(197,160,122,.55),
-          0 0 24px rgba(197,160,122,.42),
-          0 0 46px rgba(197,160,122,.30);
-        opacity:1;
-      }
-      100%{
-        text-shadow:
-          0 0 6px rgba(197,160,122,.22),
-          0 0 14px rgba(197,160,122,.16),
-          0 0 28px rgba(197,160,122,.10);
-        opacity:.96;
-      }
-    }
-    .tagline{
-      font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      font-weight:600;
-      font-size:.95rem;
-      letter-spacing:.3px;
-      color:rgba(232,225,217,.60);
-      padding:.15rem .5rem;
-      border:1px solid rgba(197,160,122,.25);
-      border-radius:999px;
-      background:linear-gradient(180deg, rgba(255,255,255,.03), transparent);
-      backdrop-filter:blur(1.5px);
-      transition:color .25s ease,border-color .25s ease,background .25s ease;
-    }
-    header:hover .tagline{
-      color:rgba(232,225,217,.85);
-      border-color:rgba(197,160,122,.45);
-      background:linear-gradient(180deg, rgba(255,255,255,.05), transparent);
-    }
-
-    .container {
-    width: 95%;
-    max-width: 1000px;     /* was 860px */
-    background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%),
-        var(--panel);
-    border: 1px solid var(--hairline);
-    border-radius: 16px;   /* slightly rounder */
-    padding: 32px 40px;    /* more breathing room */
-    box-shadow:
-        0 12px 40px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.03);
-    text-align: center;
-    }
-
-    .container h2{
-      font-weight:500; color:var(--muted); font-size:1.55rem; margin-bottom:16px; letter-spacing:.4px;
-    }
-
-    ul{list-style:none} ul li{margin:14px 0}
-    a{
-      text-decoration:none; font-weight:500; color:var(--accent);
-      border-bottom:1px dashed rgba(197,160,122,.35); padding-bottom:2px;
-      transition:color .2s ease,border-color .2s ease,transform .1s ease;
-    }
-    a:hover{ color:var(--accent-strong); border-color:rgba(197,160,122,.6); }
-
-    /* === Quotes === */
-    @keyframes fadeInSoft{
-      from{opacity:0; transform:translateY(8px);}
-      to{opacity:1; transform:translateY(0);}
-    }
-    .quote{
-      position:fixed; left:50%; bottom:64px; transform:translateX(-50%);
-      width:min(95%, 900px);
-      text-align:center;
-      color:rgba(232,225,217,.42);
-      font-weight:400;
-      font-size:.72rem;
-      line-height:1.5;
-      pointer-events:none;
-      text-wrap:balance;
-      filter:drop-shadow(0 1px 0 rgba(0,0,0,.25));
-    }
-    .quote p{
-      margin:8px 0;
-      opacity:0;
-      white-space:normal;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      animation:fadeInSoft 2.2s ease-in forwards;
-    }
-    /* Wait longer for the second quote */
-    .quote p:nth-child(2){
-      animation-delay:6.5s;
-    }
-
-    footer{
-      position:fixed; bottom:0; left:0; width:100%; text-align:center;
-      padding:10px 14px; font-size:.7rem; color:rgba(184,175,164,.4);
-      background:linear-gradient(180deg, transparent, var(--veil));
-      border-top:1px solid var(--hairline); letter-spacing:.35px; backdrop-filter:blur(2px);
-    }
-    /* Footer icons */
-    footer .social-icons{ display:inline-flex; align-items:center; gap:.6rem; margin-left:.6rem; }
-    footer .social-icons a{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:22px; height:22px; color:rgba(197,160,122,.7);
-      text-decoration:none; border:none; padding:0; transition:color .25s ease, transform .2s ease;
-    }
-    footer .social-icons a:hover{ color:var(--accent-strong); transform:scale(1.1); }
-    footer .social-icons .icon{ width:100%; height:100%; fill:currentColor; }
-  </style>
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <header>
-    <div class="brand">Ashley Ye</div>
+    <div class="brand">Yuxin Ye</div>
     <div class="tagline">A Thinking Space</div>
   </header>
 
   <div class="container">
     <h2>Explore</h2>
     <ul>
-      <li><a href="concepts/index.html" target="_blank">Thoughts</a></li>
-      <li><a href="concepts/linear.html" target="_blank">About me</a></li>
+      <li><a href="concepts/index.html" target="_blank" rel="noopener noreferrer">Thoughts</a></li>
+      <li><a href="concepts/linear.html" target="_blank" rel="noopener noreferrer">About me</a></li>
+      <li><a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV (PDF)</a></li>
     </ul>
   </div>
 
@@ -184,16 +32,16 @@
 
   <footer>
     <p>
-      &copy; 2025 Ashley Ye. All rights reserved.
+      &copy; 2025 Yuxin Ye. All rights reserved.
       <span class="social-icons">
         <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/yuxin-ye-9928ab183/" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/yuxin-ye-9928ab183/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon">
             <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8A53.79 53.79 0 0 1 107.6 53.8c0 29.7-24.1 54.3-53.81 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.3-79.3-48.3 0-55.7 37.7-55.7 76.6V448h-92.68V148.9h88.94v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/>
           </svg>
         </a>
         <!-- GitHub -->
-        <a href="https://github.com/YYXLN" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/YYXLN" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon">
             <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-2.9.3-5.2-1.3-5.2-3.6s2.3-3.6 5.2-3.6c2.9 0 5.2 1.3 5.2 3.6zm282.1-141.4c0 110.5-71.3 164-170.1 172.6 9.9 8.6 18.8 25.6 18.8 51.7 0 37.3-.3 67.3-.3 76.5 0 6.5 4.4 14.2 16.7 11.6C426.2 461.5 496 366.9 496 256 496 119 385 8 248 8S0 119 0 256c0 110.9 69.8 205.5 166.5 239.2 12.3 2.3 16.8-5.2 16.8-11.6 0-5.5-.3-23.7-.3-43.2-68 14.8-82.3-29.3-82.3-29.3-11-28.4-26.8-36-26.8-36-21.9-15 1.6-14.7 1.6-14.7 24.3 1.6 37.1 24.9 37.1 24.9 21.6 37.1 56.5 26.5 70.4 20.3 2.3-15.8 8.4-26.5 15.2-32.7-54.4-6.1-111.6-27.2-111.6-121 0-26.8 9.7-48.7 25.5-65.8-2.6-6.4-11-32.3 2.6-67.2 0 0 20.6-6.7 67.5 25.2 19.4-5.5 40-8.1 60.6-8.1 20.6 0 41.2 2.6 60.6 8.1 46.8-32 67.5-25.2 67.5-25.2 13.6 34.9 5.2 60.8 2.6 67.2 15.8 17.1 25.5 39 25.5 65.8z"/>
           </svg>
