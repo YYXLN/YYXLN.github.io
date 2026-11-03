@@ -1,11 +1,11 @@
 # Yuxin Ye’s personal website
 
-The home page, Thoughts, About page, and HTML CV share `style.css`. The original homepage style and writing are preserved; the display name is Yuxin Ye. The live site is hosted on GitHub Pages at https://yyxln.github.io/.
+The home page, Thoughts, and optional HTML CV share `style.css`. About me opens the standalone `cv.pdf`, preserving its original PDF formatting. The original homepage style and writing are preserved; the display name is Yuxin Ye. The live site is hosted on GitHub Pages at https://yyxln.github.io/.
 
 ## Edit and build
 
 - Edit `index.html` for the home page.
-- Edit `concepts/*.md` for Thoughts. About uses the CV source. Local `.md` links become `.html` links during the build.
+- Edit `concepts/*.md` for Thoughts. The About link opens `cv.pdf`; the old About URL redirects there. Local `.md` links become `.html` links during the build.
 - Edit `cv.md` for both CV formats. The current role includes work verified against company Codex records: Qwen training/rollout infrastructure, ACS sandbox integration and replay validation, and long-horizon agent evaluation harnesses.
 
 ```sh

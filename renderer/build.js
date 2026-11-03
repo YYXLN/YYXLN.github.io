@@ -17,7 +17,20 @@ function build(source, output, title, pageQuotes = quotes, options = {}) {
 }
 
 build("cv.md", "cv.html", "CV · Yuxin Ye", []);
-build("cv.md", "concepts/linear.html", "About · Yuxin Ye", [], { rootPrefix: "../" });
+// Keep existing About bookmarks working while opening the original PDF directly.
+fs.writeFileSync(path.join(ROOT, "concepts/linear.html"), `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=../cv.pdf">
+  <title>About me · Yuxin Ye</title>
+</head>
+<body>
+  <p><a href="../cv.pdf">Open Yuxin Ye's CV (PDF)</a></p>
+</body>
+</html>
+`);
 for (const file of fs.readdirSync(path.join(ROOT, "concepts")).sort()) {
   if (!file.endsWith(".md")) continue;
   const title = file === "linear.md" ? "About · Yuxin Ye" : "Thoughts · Yuxin Ye";

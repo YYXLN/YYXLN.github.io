@@ -39,8 +39,8 @@ export function convertMarkdownToStyledHTML(markdown, opts = {}) {
     <nav class="page-nav" aria-label="Main navigation">
       ${nav("home", "Home", `${root}index.html`)}
       ${nav("thoughts", "Thoughts", `${root}concepts/index.html`)}
-      ${nav("about", "About", `${root}concepts/linear.html`)}
-      ${nav("cv", "CV", `${root}cv.html`)}
+      ${nav("about", "About", `${root}cv.pdf`)}
+      ${nav("cv", "CV", `${root}cv.pdf`)}
     </nav>
     ${!isThoughtsIndex && active === "thoughts" ? '<a class="back-link" href="index.html">← All thoughts</a>' : ""}
     ${isCV || active === "about" ? `<div class="cv-actions"><a href="${root}cv.pdf">Download CV (PDF) ↗</a></div>` : ""}

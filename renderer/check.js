@@ -7,8 +7,9 @@ const pages = ["index.html", "cv.html", ...fs.readdirSync(path.join(root, "conce
 const errors = [];
 for (const page of pages) {
   const html = fs.readFileSync(path.join(root, page), "utf8");
-  if (!html.includes("style.css?v=6")) errors.push(`${page}: shared theme missing`);
-  if (page !== "index.html" && !html.includes('aria-label="Main navigation"')) errors.push(`${page}: navigation missing`);
+  const isRedirect = /<meta http-equiv="refresh"/i.test(html);
+  if (!isRedirect && !html.includes("style.css?v=6")) errors.push(`${page}: shared theme missing`);
+  if (!isRedirect && page !== "index.html" && !html.includes('aria-label="Main navigation"')) errors.push(`${page}: navigation missing`);
   for (const [, target] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     if (target.startsWith("file:")) errors.push(`${page}: filesystem URL ${target}`);
     if (/^(?:[a-z][a-z0-9+.-]*:|#|\/\/)/i.test(target)) continue;

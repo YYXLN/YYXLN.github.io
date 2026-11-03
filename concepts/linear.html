@@ -3,103 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <meta name="description" content="Yuxin Ye's notes on reinforcement learning, language models, and systems.">
-  <title>About · Yuxin Ye</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=6">
+  <meta http-equiv="refresh" content="0; url=../cv.pdf">
+  <title>About me · Yuxin Ye</title>
 </head>
-<body class="reading-page">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header>
-    <div class="brand">Yuxin Ye</div>
-    <span class="tagline">A Thinking Space</span>
-
-  </header>
-  <main id="main" class="container prose">
-    <nav class="page-nav" aria-label="Main navigation">
-      <a href="../index.html">Home</a>
-      <a href="../concepts/index.html">Thoughts</a>
-      <a href="../concepts/linear.html" aria-current="page">About</a>
-      <a href="../cv.html">CV</a>
-    </nav>
-
-    <div class="cv-actions"><a href="../cv.pdf">Download CV (PDF) ↗</a></div>
-    <h1>Yuxin Ye</h1>
-<p><a href="mailto:yeyuxin9816@gmail.com">yeyuxin9816@gmail.com</a> · (+1) 508-745-8907</p>
-<h2>Industry Experience</h2>
-<h3>Alibaba Group, Tongyi Lab (Qwen) - Algorithm Engineer, RL Infrastructure</h3>
-<p>Mar 2026 - Present</p>
-<ul>
-<li>Parallelize large-scale ASR and audio-encoder pretraining for Qwen omni models.</li>
-<li>Build GRPO / PPO post-training infrastructure for Qwen MoE models on verl, connecting Megatron training and vLLM inference through a separated trainer-rollout architecture and NCCL / NIXL weight synchronization.</li>
-<li>Engineer reward systems combining rule-based verifiers and LLM-as-judge evaluation for accuracy, instruction-following, and helpfulness.</li>
-<li>Build two-stage vLLM-omni rollout with encoder/decoder disaggregation and shared-memory transfer of hidden states, supporting trainable-encoder GRPO.</li>
-<li>Develop agent tool-execution sandbox integration on Alibaba Cloud ACS / Kubernetes, including E2B SDK adapters, reproducible tool replay, artifact collection, and environment cleanup. Validated 208 command replays across 16 fresh CPU environments.</li>
-<li>Build and debug long-horizon agent rollout and evaluation harnesses for APEX and SWE-bench, including tool-call protocols, context / token budgeting, final-answer handling, grading coverage, and trajectory observability.</li>
-</ul>
-<h3>Cerebras Systems - Member of Technical Staff</h3>
-<p>Jan 2025 - Mar 2026</p>
-<ul>
-<li>Built RL post-training on wafer-scale hardware (CSX / WSE): wrote the trainer API against its instruction set, memory model, and compiler stack, and stood up a verl-based RL stack for training-inference co-design on non-GPU silicon.</li>
-<li>Deployed and debugged datacenter-scale Cerebras clusters for reliable large-model training and inference.</li>
-</ul>
-<h3>Lamini AI - High Performance Computing Engineer</h3>
-<p>May 2024 - Jan 2025</p>
-<ul>
-<li>Co-authored <em>Banishing LLM Hallucinations Requires Rethinking Generalization</em> (Lamini Memory Tuning) with Dr. Gregory Diamos.</li>
-<li>Enabled RoCE RDMA over AMD MI300 / MI250 with Mellanox / Broadcom drivers and Kubernetes / Slurm; implemented DP and FSDP with mpi4py over a 100 Gbps RoCE network; deployed vLLM-compatible serving across NVIDIA and AMD machines.</li>
-</ul>
-<h3>Amazon Robotics - Software Development Engineer</h3>
-<p>Jul 2022 - Mar 2024</p>
-<ul>
-<li>Developed features for an event-driven, multi-agent simulator of automated sortation floors, including multi-robot drive-path planning, staging-cell distribution, and resource-based allocation.</li>
-</ul>
-<h2>Publication</h2>
-<p>Johnny Li, Saksham Consul, Eda Zhou, James Wong, Naila Farooqui, Yuxin Ye, Nithyashree Manohar, Zhuxiaona Wei, Tian Wu, Ben Echols, Sharon Zhou, Gregory Diamos. <em>Banishing LLM Hallucinations Requires Rethinking Generalization.</em> <a href="https://arxiv.org/abs/2406.17642">arXiv:2406.17642</a>, 2024.</p>
-<h2>Education</h2>
-<p><strong>Harvard University, GSAS</strong> - M.S., Computational Science and Engineering · 2020 - 2022 · GPA 3.87</p>
-<p><strong>University of Science and Technology of China</strong> - B.S., Physics, School of the Gifted Young · 2016 - 2020 · GPA 3.7</p>
-<!-- PDF_PAGE_BREAK -->
-
-<h2>Selected Projects</h2>
-<h3>Draft Models as Test-Time-Trained Search Policies</h3>
-<p>Ongoing research</p>
-<p>Investigate a small draft model as both a speculative-decoding proposer verified by a larger target and a rollout policy for MCTS over chain-of-thought. Study per-problem adaptation using search outcomes, with evaluation designed to compare accuracy at matched inference compute. This is an ongoing research direction.</p>
-<h3>Gomoku Solver - Monte Carlo Tree Search</h3>
-<p>2021 - 2022 · MIT 6.877 Principles of Autonomy and Decision Making</p>
-<p>Implemented UCT MCTS for 9×9 Gomoku with a neural network as the default rollout policy.</p>
-<h3>Reinforcement Learning of Soft Fish-like Swimmers (C++)</h3>
-<p>2021 - 2022 · Research Assistant, Prof. Petros Koumoutsakos, Harvard SEAS</p>
-<p>Coupled fluid-soft-body interaction using the inverse-map technique into a direct numerical flow simulator built on the Cubism library with Adaptive Mesh Refinement. Parametrized swimmer gait with neural spline knots and trained swimming behavior via reinforcement learning over muscle actuation. <a href="https://github.com/YYXLN/CUP2D">Code</a></p>
-<h3>Wasserstein Learning of Generative Models</h3>
-<p>Apr - May 2021 · MIT 6.838 Shape Analysis</p>
-<p>Built WGAN-GP from scratch, validated its tractable loss and a Monge-map construction, and benchmarked against W2GAN on MNIST and CIFAR-10.</p>
-<h3>Realtime Snow Simulation and Rendering (C++)</h3>
-<p>Nov - Dec 2020 · MIT 6.837 Computer Graphics · Course project contest runner-up</p>
-<p>Simulated snow with the moving-least-squares material point method (MLS-MPM) and rendered in real time.</p>
-<h3>Auto-differentiation Package (C++)</h3>
-<p>Oct - Dec 2020</p>
-<p>Implemented automatic differentiation in forward and reverse modes, including expression-graph construction and derivative transforms. <a href="https://github.com/CS107-off-piste/cs107-FinalProject">Code</a></p>
-<h2>Teaching</h2>
-<p>Teaching Assistant - CS 205: Computing Foundations for Computational Science (HPC / HTC), Harvard GSAS · Spring 2022</p>
-<h2>Research Interests</h2>
-<p>Reinforcement pretraining and verifiable rewards; test-time compute and search-guided self-improvement; predictive representations and encoder compression; inverse RL for alignment; discrete flows and non-autoregressive generation; IO and data movement in architecture design.</p>
-<h2>Skills</h2>
-<p><strong>Methods:</strong> RL post-training (GRPO / PPO / DPO), inverse RL, MCTS and search, speculative decoding, test-time training, flow matching, reward modeling.</p>
-<p><strong>Training and inference:</strong> PyTorch, JAX, Megatron-LM, DeepSpeed, FSDP, verl, vLLM.</p>
-<p><strong>GPU and communication:</strong> CUDA, ROCm, Triton; NCCL, NIXL, RDMA (RoCE), MPI.</p>
-<p><strong>Languages and infrastructure:</strong> C/C++, Python, Go, Julia; Linux, Kubernetes, Slurm, Git.</p>
-
-  </main>
-
-  <footer>
-    <span>&copy; 2026 Yuxin Ye</span>
-    <nav aria-label="Social links">
-      <a href="https://www.linkedin.com/in/yuxin-ye-9928ab183/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      <a href="https://github.com/YYXLN" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      <a href="mailto:yeyuxin9816@gmail.com">Email ↗</a>
-    </nav>
-  </footer>
+<body>
+  <p><a href="../cv.pdf">Open Yuxin Ye's CV (PDF)</a></p>
 </body>
 </html>
